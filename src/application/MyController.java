@@ -120,9 +120,18 @@ public class MyController {
 				}
     		}
     		for (int i=0;i<email.length();i++){
-    			if(email.charAt(i)=='@' && (email.substring(email.length()-4)==".com" || email.substring(email.length()-3)==".es")){
-    				emailcorrecto = true;
+    			if(email.charAt(i)=='@') {
+    				if (email.substring(email.length()-4).equals(".com") || email.substring(email.length()-3).equals(".es")){
+    					emailcorrecto = true;
+    				}   					 					
     			}
+    		}
+    		if (emailcorrecto==false) {
+        	  Alert alert = new Alert (Alert.AlertType.ERROR);
+         	  alert.setTitle("Correo incorrecto");
+         	  alert.setHeaderText(null);
+        	  alert.setContentText("El correo no es un correo valido.");
+         	  alert.showAndWait();			
     		}
     		if (erNombre==false && erApellido1==false && erApellido1==false && emailcorrecto==true){
  	 	         Alert alert = new Alert (Alert.AlertType.INFORMATION);
